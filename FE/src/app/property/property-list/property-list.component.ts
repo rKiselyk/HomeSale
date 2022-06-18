@@ -6,6 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
+  properties: any[] = [
+    {
+      id: 1,
+      type: "House",
+      price: 1200,
+      name: "my house"
+    },
+    {
+      id: 2,
+      type: "House",
+      price: 1200,
+      name: "my house"
+    },
+    {
+      id: 3,
+      type: "House",
+      price: 1200,
+      name: "my house"
+    },
+    {
+      id: 3,
+      type: "House",
+      price: 1200,
+      name: "my house"
+    },
+  ];
 
   constructor() { }
 
