@@ -25,6 +25,8 @@ import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { DatePipe } from '@angular/common';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
+import { FilterPipe } from './Pipes/filter.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
 
 const appRoute: Routes = [
   { path: '', component: PropertyListComponent },
@@ -45,7 +47,9 @@ const appRoute: Routes = [
     AddPropertyComponent,
     PropertyDetailComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    FilterPipe,
+    SortPipe,
    ],
   imports: [
     BrowserModule,

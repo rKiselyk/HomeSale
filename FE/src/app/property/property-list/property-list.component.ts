@@ -13,6 +13,11 @@ import { HousingService } from 'src/app/services/housing.service';
 export class PropertyListComponent implements OnInit {
   sellRent: number = 1;
   properties: IPropertyBase[] = [];
+  Today = new Date();
+  City = '';
+  SearchCity = '';
+  SortbyParam = '';
+  SortDirection = 'asc';
 
   constructor(
     private route: ActivatedRoute,
@@ -34,5 +39,22 @@ export class PropertyListComponent implements OnInit {
       console.log(res)
       console.log(this.route.snapshot.url.toString())
     })
+  }
+
+  onCityFilter() {
+    this.SearchCity = this.City;
+  }
+
+  onCityFilterClear() {
+    this.SearchCity = '';
+    this.City = '';
+  }
+
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+        this.SortDirection = 'asc';
+    } else {
+        this.SortDirection = 'desc';
+    }
   }
 }
