@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user-service.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-user-register',
@@ -31,7 +32,8 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private alertifyService: AlertifyService
   ) { }
 
   ngOnInit() {
@@ -59,6 +61,10 @@ export class UserRegisterComponent implements OnInit {
       this.userService.addUsers(this.userData());
       this.registrationForm.reset();
       this.userSubmitted = false;
+
+      this.alertifyService.success("congrats, you are successful register")
+    } else {
+      this.alertifyService.error("kindly provide the required fields")
     }
   }
 
