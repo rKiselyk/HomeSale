@@ -22,6 +22,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserService } from './services/user-service.service';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
+import { DatePipe } from '@angular/common';
 
 const appRoute: Routes = [
   { path: '', component: PropertyListComponent },
@@ -61,7 +62,8 @@ const appRoute: Routes = [
     HousingService,
     UserService,
     AlertifyService,
-    AuthService
+    AuthService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
