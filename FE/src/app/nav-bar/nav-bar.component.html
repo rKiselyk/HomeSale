@@ -19,14 +19,12 @@
 
       <div>
         <ul class="nav navbar-nav">
-          <div *ngIf="!loggedin()">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/user/register" routerLinkActive="active">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/user/login" routerLinkActive="active">Login</a>
-            </li>
-          </div>
+          <li  *ngIf="!loggedin()" class="nav-item">
+            <a class="nav-link" routerLink="/user/register" routerLinkActive="active">Register</a>
+          </li>
+          <li  *ngIf="!loggedin()" class="nav-item">
+            <a class="nav-link" routerLink="/user/login" routerLinkActive="active">Login</a>
+          </li>
 
           <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
             <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
