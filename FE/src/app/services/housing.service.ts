@@ -13,10 +13,10 @@ export class HousingService {
     private http:HttpClient
   ) { }
 
-  getAllProperties(sellRent?: number): Observable<IProperty[]> {
+  getAllProperties(sellRent?: number): Observable<Property[]> {
     return this.http.get("data/properties.json").pipe(
       map(data => {
-        const properties: IProperty[] = [];
+        const properties: Property[] = [];
         const newProperties = JSON.parse(localStorage.getItem("newProperty"));
 
         if (newProperties) {
@@ -49,7 +49,7 @@ export class HousingService {
   getProperty(id: number) {
     return this.getAllProperties().pipe(
       map(properties => {
-        return properties.find(p => p.Id === id);
+        return <Property>properties.find(p => p.Id === id);
       })
     )
   }
