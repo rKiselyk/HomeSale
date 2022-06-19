@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
+import { Property } from 'src/app/model/property';
 import { HousingService } from 'src/app/services/housing.service';
 
 @Component({
@@ -24,6 +25,12 @@ export class PropertyListComponent implements OnInit {
     }
     this.housingService.getAllProperties(this.sellRent).subscribe((res) => {
       this.properties = res;
+      const newProperty: Property = JSON.parse(localStorage.getItem("newProperty"));
+
+      if (newProperty.SellRent === this.sellRent) {
+        this.properties = [newProperty, ...this.properties];
+      }
+
       console.log(res)
       console.log(this.route.snapshot.url.toString())
     })
