@@ -1,0 +1,11 @@
+.navbar-brand {
+  color: white;
+}
+
+.nav-item a {
+  color: lightgray;
+}
+
+.nav-item a.active {
+  color: white;
+}
